@@ -22,7 +22,16 @@ import { todoItems } from './data.js';
   //      }
   //      //getters and setters Funktionalitäten ggf hinzufügen
   //   }   
- 
+
+//Functionality to update style when status changed
+ function updateRowStatusStyling(row, status) {
+  // Remove any existing status classes
+  row.classList.remove('status-idea', 'status-confirmed', 'status-planned', 'status-done');
+  
+  // Add the appropriate class based on the new status
+  row.classList.add(`status-${status}`);
+}
+
 //How Dropdown Fields Work
 function createDropdown(type, options, selectedValue) {
   const select = document.createElement('select');
@@ -38,6 +47,28 @@ function createDropdown(type, options, selectedValue) {
   
   return select;
 }
+//How the event listener works
+function setupDropdownListeners(row, categoryDropdown, statusDropdown, item) {
+  // Listen for changes to the category dropdown
+  categoryDropdown.addEventListener('change', (event) => {
+    // Update the data model when category changes
+    item.category = event.target.value;
+    // You might want to save changes to server/localStorage here
+  });
+  
+  // Listen for changes to the status dropdown
+  statusDropdown.addEventListener('change', (event) => {
+    // Update the data model when status changes
+    item.status = event.target.value;
+    
+    // Update visual styling based on status
+    updateRowStatusStyling(row, item.status);
+    
+    // You might want to save changes to server/localStorage here
+  });
+}
+
+
 // Render ToDo List Table
 function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
