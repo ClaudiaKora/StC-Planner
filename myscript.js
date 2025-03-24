@@ -6,7 +6,7 @@ const todoItems = [
        possibleOn: "2025-03-29 09:00, - , 2025-03-27 17:00",
        plannedFor: "-",
        geotag: "40.7812, -73.9665",
-       tags: "nature, outdoors, relaxing"
+       tags: ["nature, outdoors, relaxing"]
        },
      {
         name: "Visit the Botanical Gardens2",
@@ -15,7 +15,7 @@ const todoItems = [
         possibleOn: "2025-03-29 09:00 - 17:00",
         plannedFor: "-",
         geotag: "40.7812, -73.9665",
-        tags: "nature, outdoors, relaxing"
+        tags: ["nature, outdoors, relaxing"]
        },
     {
         name: "Dinner at Italian Restaurant",
@@ -24,31 +24,12 @@ const todoItems = [
         possibleOn: "2025-03-26 19:00 - 22:00",
         plannedFor: "19:30",
         geotag: "40.7580, -73.9855",
-        tags: "social, food, work"
+        tags: ["social, food, work"]
     },
 ];
-  //Java Class as a template for all the todoItems - stored in data.js...(?)
-   // public class todoItem {
-   //     private String activity;
-   //     private String category;
-   //     private String status; 
-   //     private object possibility[];
-  //      private d "Geplant für:" = date;
-  //      private Object location[];
-  //      private Object tags [];
-  //      
-  //      public todoItems(activity, category, status, possibility, date, location, tags) {
-  //          this.activity = activity;
-  //          this.category = category;
-  //          this.status = status;
-  //          this.possibility = possibility;
-  //          this.date = date;
-  //          this.location = location;
-  //          this.tags = tags;
-  //      }
-  //      //getters and setters Funktionalitäten ggf hinzufügen
-  //   }   
 
+const tagsList = ["nature", "outdoors", "relaxing", "social", "food", "work"];
+ 
 //Functionality to update style when status changed
  //function updateRowStatusStyling(row, status) {
   // Remove any existing status classes
@@ -180,6 +161,26 @@ function addNewItem() {
   }
 }
 
+function filterTodoItemsByTag(selectedTag) {
+  return todoItems.filter(item => item.tags.includes(selectedTag));
+}
+// Example usage:
+//let filteredItems = filterTodoItemsByTag("nature");
+//console.log(filteredItems); // This will return all todo items with the "nature" tag
+
+//render function for displaying tags
+function renderTags(tags) {
+  const tagsContainer = document.createElement('div');
+  tags.forEach(tag => {
+    const tagElement = document.createElement('span');
+    tagElement.className = 'tag';
+    tagElement.textContent = tag;
+    tagsContainer.appendChild(tagElement);
+  });
+  return tagsContainer;
+}
+
+
 // Render ToDo List Table
 function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
@@ -216,7 +217,7 @@ function renderTable(todoItems) {
     row.appendChild(geotagCell);
 
     const tagsCell = document.createElement('td');
-    tagsCell.textContent = item.tags;
+    tagsCell.appendChild(renderTags(item.tags));
     row.appendChild(tagsCell);
 
     tbody.appendChild(row);
@@ -224,7 +225,12 @@ function renderTable(todoItems) {
 
   // Render an empty row for adding new items
   renderEmptyRow(tbody);
+
+  // Add event listener to the filter button
+  const filterButton = document.getElementById('filter-button');
+  filterButton.addEventListener('click', handleFilterButton);
 }
+
 // Function to add a new todo item
 function addTodoItem(name, category, status, possibleOn, plannedFor, geotag, tags) {
   const newItem = {
