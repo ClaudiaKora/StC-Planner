@@ -250,6 +250,16 @@ function addTodoItem(name, category, status, possibleOn, plannedFor, geotag, tag
   renderTable(todoItems);
 }
 
+//Event Listener for Stichwortfilter button
+document.getElementById('filter-button').addEventListener('click', handleFilterButton);
+
+function handleFilterButton() {
+    const selectedTag = document.getElementById('tag-filter').value;
+    const filteredItems = filterTodoItemsByTag(selectedTag);
+    renderTable(filteredItems);
+}
+
+
 // User credentials 
 const users = [
     { username: "Claudia", password: "Kraxner" },
