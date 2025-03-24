@@ -23,6 +23,8 @@ function validateLogin() {
         alert("Invalid username or password. Please try again.");
     }
 }
+
+//How Dropdown Fields Work
 function createDropdown(type, options, selectedValue) {
   const select = document.createElement('select');
   select.className = `${type}-select`;
@@ -37,7 +39,7 @@ function createDropdown(type, options, selectedValue) {
   
   return select;
 }
-
+// Render ToDo List Table
 function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
   tbody.innerHTML = '';
@@ -66,7 +68,6 @@ function renderTable(todoItems) {
     row.appendChild(statusCell);
     
     // Add remaining cells...
-    
     tbody.appendChild(row);
   });
 }
