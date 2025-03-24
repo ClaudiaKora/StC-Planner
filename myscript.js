@@ -1,4 +1,4 @@
-import { todoItems } from './data.js';
+import { todoItems } from './main/data.js';
 
   //Java Class as a template for all the todoItems - stored in data.js...(?)
    // public class todoItem {
