@@ -26,19 +26,24 @@ function validateLogin() {
 
 //Java Class for Json Objects - the actual To Do List items in data.json
 public class todoItem {
-    constructor(activity, category, status, possibility, date, location, tags)
-    private String Aktivität = activity;
-    private String Kategorie = category;
-    private String Status = status; 
-    private object ["Möglichvon","Möglichbis"] = possibility;
+    private String activity;
+    private String category;
+    private String status; 
+    private object possibility[];
     private d "Geplant für:" = date;
-    private object ["Geotag"] = location;
-    private object ["Stichwoerter"] = tags;
+    private Object location[];
+    private Object tags [];
+    
+    public todoItem(activity, category, status, possibility, date, location, tags){
+        this.activity = activity;
+        this.category = category;
+        this.status = status;
+        this.possibility = possibility;
+        this.date = date;
+        this.location = location;
+        this.tags = tags;
     }
-    public todoItemClass(){
-    }
-
-    //getters and setters
+    //getters and setters Funktionalitäten ggf hinzufügen
  }   
 
 //How Dropdown Fields Work
@@ -60,7 +65,8 @@ function createDropdown(type, options, selectedValue) {
 function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
   tbody.innerHTML = '';
-
+    
+  // Options for Dropdown list items
   const categoryOptions = ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'];
   const statusOptions = ['Idee', 'Geplant', 'Mach ma Fix', 'Erlebt'];
   
