@@ -1,4 +1,3 @@
-//Work with data from the data file
 import { todoItems } from './data.js';
 
   //Java Class as a template for all the todoItems - stored in data.js...(?)
