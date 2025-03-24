@@ -53,8 +53,8 @@
     <script>
         // User credentials
         const users = [
-            { username: "admin", password: "admin123" },
-            { username: "user", password: "user123" }
+            { username: "Claudia", password: "Kraxner" },
+            { username: "Stephan", password: "Ronge" }
         ];
 
         function validateLogin() {
@@ -70,27 +70,11 @@
                 document.getElementById("items-section").style.display = "block";
                 alert("Welcome, " + username + "!");
                 
-                // After login, set up the event listeners for status changes
-                setupStatusChangeListeners();
+                // Render the table with data
+                renderTable(todoItems);
             } else {
                 alert("Invalid username or password. Please try again.");
             }
-        }
-        
-        function setupStatusChangeListeners() {
-            // Add event listeners to all status dropdowns
-            document.querySelectorAll('.status-select').forEach(select => {
-                select.addEventListener('change', function() {
-                    const status = this.value;
-                    const row = this.closest('tr');
-                    
-                    // Clear any previous status classes
-                    row.classList.remove('status-idea', 'status-confirmed', 'status-planned', 'status-done');
-                    
-                    // Add the new status class
-                    row.classList.add('status-' + status);
-                });
-            });
         }
     </script>
 </body>
