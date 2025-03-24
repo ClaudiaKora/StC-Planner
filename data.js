@@ -4,7 +4,7 @@ export const todoItems = [
        category: "Tagesausflug",
        status: "Geplant",
        possibleOn: "2025-03-29 09:00, - , 2025-03-27 17:00",
-       plannedFor:  "void",
+       plannedFor: "-",
        geotag: "40.7812, -73.9665",
        tags: "nature, outdoors, relaxing"
        },
