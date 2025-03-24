@@ -12,14 +12,14 @@ body {
 }
 
 .container {
-    width: 80%;
-    max-width: 1000px;
+    width: 90%;
+    max-width: 1200px;
     margin: 2rem auto;
     padding: 1rem;
 }
 
 header {
-    background-color: #333;
+    background-color: #2c3e50;
     color: white;
     padding: 1rem;
     text-align: center;
@@ -28,7 +28,7 @@ header {
 }
 
 h2 {
-    color: #333;
+    color: #2c3e50;
     margin-bottom: 1rem;
     border-bottom: 2px solid #ddd;
     padding-bottom: 0.5rem;
@@ -62,7 +62,7 @@ input {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #3498db;
     color: white;
     padding: 0.8rem 1.5rem;
     border: none;
@@ -73,7 +73,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2980b9;
 }
 
 /* Table Styles */
@@ -82,6 +82,10 @@ button:hover {
     padding: 2rem;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+    overflow-x: auto;
 }
 
 table {
@@ -99,9 +103,38 @@ th, td {
 th {
     background-color: #f2f2f2;
     font-weight: bold;
+    position: sticky;
+    top: 0;
 }
 
 tr:hover {
     background-color: #f5f5f5;
 }
-Last edited 1 minute ago
+
+/* Status-specific styles */
+td:nth-child(3) {
+    font-weight: bold;
+}
+
+tr td:nth-child(3):contains("idea") {
+    color: #3498db;
+}
+
+tr td:nth-child(3):contains("confirmed") {
+    color: #f39c12;
+}
+
+tr td:nth-child(3):contains("planned") {
+    color: #2ecc71;
+}
+
+tr td:nth-child(3):contains("done") {
+    color: #7f8c8d;
+    text-decoration: line-through;
+}
+
+/* Tag styles */
+td:nth-child(7) {
+    max-width: 200px;
+    word-wrap: break-word;
+}
