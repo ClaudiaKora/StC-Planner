@@ -18,7 +18,7 @@ function validateLogin() {
         alert("Welcome, " + username + "!");
         
         // Render the table with data
-        renderTable(todoItems);
+        //renderTable(todoItems);
     } else {
         alert("Invalid username or password. Please try again.");
     }
