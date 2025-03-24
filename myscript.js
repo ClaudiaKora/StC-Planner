@@ -1,27 +1,7 @@
+//Work with data from the data file
 import { todoItems } from './data.js';
 
-    
-//How Dropdown Fields Work
-function createDropdown(type, options, selectedValue) {
-  const select = document.createElement('select');
-  select.className = `${type}-select`;
-  
-  options.forEach(option => {
-    const optionElement = document.createElement('option');
-    optionElement.value = option;
-    optionElement.textContent = option;
-    optionElement.selected = (option === selectedValue);
-    select.appendChild(optionElement);
-  });
-  
-  return select;
-}
-// Render ToDo List Table
-function renderTable(todoItems) {
-  const tbody = document.querySelector('#todo-table tbody');
-  tbody.innerHTML = '';
-  
-   //Java Class as a template for all the todoItems - stored in data.js...(?)
+  //Java Class as a template for all the todoItems - stored in data.js...(?)
    // public class todoItem {
    //     private String activity;
    //     private String category;
@@ -42,7 +22,28 @@ function renderTable(todoItems) {
   //      }
   //      //getters and setters Funktionalitäten ggf hinzufügen
   //   }   
-  //   import { todoItems } from ./data.js;
+ 
+//How Dropdown Fields Work
+function createDropdown(type, options, selectedValue) {
+  const select = document.createElement('select');
+  select.className = `${type}-select`;
+  
+  options.forEach(option => {
+    const optionElement = document.createElement('option');
+    optionElement.value = option;
+    optionElement.textContent = option;
+    optionElement.selected = (option === selectedValue);
+    select.appendChild(optionElement);
+  });
+  
+  return select;
+}
+// Render ToDo List Table
+function renderTable(todoItems) {
+  const tbody = document.querySelector('#todo-table tbody');
+  tbody.innerHTML = '';
+  
+ 
       
   // Options for Dropdown list items
   const categoryOptions = ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'];
@@ -68,7 +69,28 @@ function renderTable(todoItems) {
     statusCell.appendChild(statusDropdown);
     row.appendChild(statusCell);
     
-    // Add remaining cells...
+    // Add the remaining cells with simple text content
+    const dateRangeCell = document.createElement('td');
+    dateRangeCell.textContent = item.possibleOn;
+    row.appendChild(dateRangeCell);
+    
+    const plannedTimeCell = document.createElement('td');
+    plannedTimeCell.textContent = item.plannedFor;
+    row.appendChild(plannedTimeCell);
+    
+    const geotagCell = document.createElement('td');
+    geotagCell.textContent = item.geotag;
+    row.appendChild(geotagCell);
+    
+    const tagsCell = document.createElement('td');
+    tagsCell.textContent = item.tags;
+    row.appendChild(tagsCell);
+
+
+     // Set up event listeners for the dropdowns in this row
+    setupDropdownListeners(row, categoryDropdown, statusDropdown, item);
+      
+    //add the complete row to the table body now  
     tbody.appendChild(row); 
   });
 }
