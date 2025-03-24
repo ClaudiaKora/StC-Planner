@@ -27,7 +27,6 @@ const todoItems = [
         tags: "social, food, work"
     },
 ];
-
   //Java Class as a template for all the todoItems - stored in data.js...(?)
    // public class todoItem {
    //     private String activity;
@@ -100,8 +99,6 @@ function createDropdown(type, options, selectedValue) {
 function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
   tbody.innerHTML = '';
-  
- 
       
   // Options for Dropdown list items
   const categoryOptions = ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'];
@@ -144,7 +141,6 @@ function renderTable(todoItems) {
     tagsCell.textContent = item.tags;
     row.appendChild(tagsCell);
 
-
      // Set up event listeners for the dropdowns in this row
     //setupDropdownListeners(row, categoryDropdown, statusDropdown, item);
       
@@ -175,7 +171,7 @@ function validateLogin() {
         alert("Welcome, " + username + "!");
         
         // Render the table with data
-        //renderTable(todoItems);
+        renderTable(todoItems);
     } else {
         alert("Invalid username or password. Please try again.");
     }
