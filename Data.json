@@ -1,5 +1,4 @@
-// This would typically be loaded from a database or API
-const todoItems = [
+[
     {
         name: "Visit the Botanical Gardens",
         category: "weekend",
@@ -18,5 +17,4 @@ const todoItems = [
         geotag: "40.7580, -73.9855",
         tags: "social, food, work"
     },
-    // Additional items...
 ];
