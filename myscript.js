@@ -93,6 +93,6 @@ function renderTable(todoItems) {
     row.appendChild(statusCell);
     
     // Add remaining cells...
-    tbody.appendChild(row);
+    tbody.appendChild(row); 
   });
 }
