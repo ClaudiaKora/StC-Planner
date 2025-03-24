@@ -1,4 +1,4 @@
-[
+const todoItems = [
  {
         "Aktivität": "Visit the Botanical Gardens",
         "Kategorie": "weekend",
@@ -26,4 +26,4 @@
         "Wo?": "40.7580, -73.9855",
         "Stichwörter": "social, food, work"
     },
-]
+];
