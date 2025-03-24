@@ -23,13 +23,13 @@ import { todoItems } from './data.js';
   //   }   
 
 //Functionality to update style when status changed
- function updateRowStatusStyling(row, status) {
+ //function updateRowStatusStyling(row, status) {
   // Remove any existing status classes
-  row.classList.remove('status-idea', 'status-confirmed', 'status-planned', 'status-done');
+  //row.classList.remove('status-idea', 'status-confirmed', 'status-planned', 'status-done');
   
   // Add the appropriate class based on the new status
-  row.classList.add(`status-${status}`);
-}
+ // row.classList.add(`status-${status}`);
+//}
 
 //How Dropdown Fields Work
 function createDropdown(type, options, selectedValue) {
