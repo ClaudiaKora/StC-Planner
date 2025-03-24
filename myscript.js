@@ -66,7 +66,7 @@ function renderTable(todoItems) {
   //      }
   //      //getters and setters Funktionalitäten ggf hinzufügen
   //   }   
-    import { todoItems } from ./data.js;
+  //   import { todoItems } from ./data.js;
       
   // Options for Dropdown list items
   const categoryOptions = ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'];
