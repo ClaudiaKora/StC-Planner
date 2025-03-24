@@ -45,27 +45,27 @@ function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
   tbody.innerHTML = '';
   
-    //Java Class as a template for all the todoItems - stored in data.js...(?)
-    public class todoItem {
-        private String activity;
-        private String category;
-        private String status; 
-        private object possibility[];
-        private d "Geplant für:" = date;
-        private Object location[];
-        private Object tags [];
-        
-        public todoItems(activity, category, status, possibility, date, location, tags) {
-            this.activity = activity;
-            this.category = category;
-            this.status = status;
-            this.possibility = possibility;
-            this.date = date;
-            this.location = location;
-            this.tags = tags;
-        }
-        //getters and setters Funktionalitäten ggf hinzufügen
-     }   
+   //Java Class as a template for all the todoItems - stored in data.js...(?)
+   // public class todoItem {
+   //     private String activity;
+   //     private String category;
+   //     private String status; 
+   //     private object possibility[];
+  //      private d "Geplant für:" = date;
+  //      private Object location[];
+  //      private Object tags [];
+  //      
+  //      public todoItems(activity, category, status, possibility, date, location, tags) {
+  //          this.activity = activity;
+  //          this.category = category;
+  //          this.status = status;
+  //          this.possibility = possibility;
+  //          this.date = date;
+  //          this.location = location;
+  //          this.tags = tags;
+  //      }
+  //      //getters and setters Funktionalitäten ggf hinzufügen
+  //   }   
     import { todoItems } from ./data.js;
       
   // Options for Dropdown list items
