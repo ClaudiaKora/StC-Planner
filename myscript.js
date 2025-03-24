@@ -47,25 +47,25 @@ function createDropdown(type, options, selectedValue) {
   return select;
 }
 //How the event listener works
-function setupDropdownListeners(row, categoryDropdown, statusDropdown, item) {
+//function setupDropdownListeners(row, categoryDropdown, statusDropdown, item) {
   // Listen for changes to the category dropdown
-  categoryDropdown.addEventListener('change', (event) => {
+  //categoryDropdown.addEventListener('change', (event) => {
     // Update the data model when category changes
-    item.category = event.target.value;
+    //item.category = event.target.value;
     // You might want to save changes to server/localStorage here
-  });
+  //});
   
   // Listen for changes to the status dropdown
-  statusDropdown.addEventListener('change', (event) => {
+  //statusDropdown.addEventListener('change', (event) => {
     // Update the data model when status changes
-    item.status = event.target.value;
+    //item.status = event.target.value;
     
     // Update visual styling based on status
-    updateRowStatusStyling(row, item.status);
+    //updateRowStatusStyling(row, item.status);
     
     // You might want to save changes to server/localStorage here
-  });
-}
+  //});
+//}
 
 
 // Render ToDo List Table
@@ -118,7 +118,7 @@ function renderTable(todoItems) {
 
 
      // Set up event listeners for the dropdowns in this row
-    setupDropdownListeners(row, categoryDropdown, statusDropdown, item);
+    //setupDropdownListeners(row, categoryDropdown, statusDropdown, item);
       
     //add the complete row to the table body now  
     tbody.appendChild(row); 
