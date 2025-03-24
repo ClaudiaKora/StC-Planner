@@ -44,7 +44,7 @@ function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
   tbody.innerHTML = '';
 
-  $.getJSON("data.json", listofActivities); 
+  $.getJSON("data.json", todoItems); 
   const categoryOptions = ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'];
   const statusOptions = ['Idee', 'Geplant', 'Mach ma Fix', 'Erlebt'];
   
