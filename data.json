@@ -18,12 +18,12 @@
         "Stichwörter": "nature, outdoors, relaxing"
        },
     {
-        "name": "Team Dinner at Italian Restaurant",
-        "category": "evening",
-        "status": "confirmed",
-        "possibleOn": "2025-03-26 19:00 - 22:00",
-        "plannedFor": "19:30",
-        "geotag": "40.7580, -73.9855",
-        "tags": "social, food, work"
+        "Aktivität": "Dinner at Italian Restaurant",
+        "Kategorie": "evening",
+        "Status": "confirmed",
+        "Möglich wann?": "2025-03-26 19:00 - 22:00",
+        "Geplant für:": "19:30",
+        "Wo?": "40.7580, -73.9855",
+        "Stichwörter": "social, food, work"
     },
 ];
