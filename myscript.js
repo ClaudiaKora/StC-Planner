@@ -29,7 +29,31 @@ const todoItems = [
 ];
 
 const tagsList = ["nature", "outdoors", "relaxing", "social", "food", "work"];
- 
+
+// Function to populate the tag filter dropdown
+function populateTagFilter() {
+    const tagFilter = document.getElementById('tag-filter');
+    
+    // Clear existing options
+    tagFilter.innerHTML = '';
+
+    // Add a default option
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'Select a tag';
+    tagFilter.appendChild(defaultOption);
+
+    // Add options from tagsList
+    tagsList.forEach(tag => {
+        const option = document.createElement('option');
+        option.value = tag;
+        option.textContent = tag;
+        tagFilter.appendChild(option);
+    });
+}
+
+// Call the function to populate the tag filter dropdown
+populateTagFilter();
 //Functionality to update style when status changed
  //function updateRowStatusStyling(row, status) {
   // Remove any existing status classes
