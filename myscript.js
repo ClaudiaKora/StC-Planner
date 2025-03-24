@@ -66,6 +66,8 @@ function createDropdown(type, options, selectedValue) {
 function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
   tbody.innerHTML = '';
+
+  import { todoItems } from ./data.js;
     
   // Options for Dropdown list items
   const categoryOptions = ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'];
