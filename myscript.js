@@ -93,60 +93,155 @@ function createDropdown(type, options, selectedValue) {
     // You might want to save changes to server/localStorage here
   //});
 //}
+// Function to render an empty row for adding new todo items
+function renderEmptyRow(tbody) {
+  const emptyRow = document.createElement('tr');
 
+  const nameCell = document.createElement('td');
+  const nameInput = document.createElement('input');
+  nameInput.type = 'text';
+  nameInput.id = 'new-name';
+  nameCell.appendChild(nameInput);
+  emptyRow.appendChild(nameCell);
+
+  const categoryCell = document.createElement('td');
+  const categoryDropdown = createDropdown('category', ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'], '');
+  categoryDropdown.id = 'new-category';
+  categoryCell.appendChild(categoryDropdown);
+  emptyRow.appendChild(categoryCell);
+
+  const statusCell = document.createElement('td');
+  const statusDropdown = createDropdown('status', ['Idee', 'Geplant', 'Mach ma Fix', 'Erlebt'], '');
+  statusDropdown.id = 'new-status';
+  statusCell.appendChild(statusDropdown);
+  emptyRow.appendChild(statusCell);
+
+  const possibleOnCell = document.createElement('td');
+  const possibleOnInput = document.createElement('input');
+  possibleOnInput.type = 'text';
+  possibleOnInput.id = 'new-possibleOn';
+  possibleOnCell.appendChild(possibleOnInput);
+  emptyRow.appendChild(possibleOnCell);
+
+  const plannedForCell = document.createElement('td');
+  const plannedForInput = document.createElement('input');
+  plannedForInput.type = 'text';
+  plannedForInput.id = 'new-plannedFor';
+  plannedForCell.appendChild(plannedForInput);
+  emptyRow.appendChild(plannedForCell);
+
+  const geotagCell = document.createElement('td');
+  const geotagInput = document.createElement('input');
+  geotagInput.type = 'text';
+  geotagInput.id = 'new-geotag';
+  geotagCell.appendChild(geotagInput);
+  emptyRow.appendChild(geotagCell);
+
+  const tagsCell = document.createElement('td');
+  const tagsInput = document.createElement('input');
+  tagsInput.type = 'text';
+  tagsInput.id = 'new-tags';
+  tagsCell.appendChild(tagsInput);
+  emptyRow.appendChild(tagsCell);
+
+  const addButtonCell = document.createElement('td');
+  const addButton = document.createElement('button');
+  addButton.textContent = 'Add';
+  addButton.onclick = addNewItem;
+  addButtonCell.appendChild(addButton);
+  emptyRow.appendChild(addButtonCell);
+
+  tbody.appendChild(emptyRow);
+}
+
+// Function to add a new todo item from the empty row
+function addNewItem() {
+  const name = document.getElementById('new-name').value;
+  const category = document.getElementById('new-category').value;
+  const status = document.getElementById('new-status').value;
+  const possibleOn = document.getElementById('new-possibleOn').value;
+  const plannedFor = document.getElementById('new-plannedFor').value;
+  const geotag = document.getElementById('new-geotag').value;
+  const tags = document.getElementById('new-tags').value;
+
+  if (name && category && status && possibleOn && plannedFor && geotag && tags) {
+    addTodoItem(name, category, status, possibleOn, plannedFor, geotag, tags);
+
+    // Clear the input fields
+    document.getElementById('new-name').value = '';
+    document.getElementById('new-category').value = '';
+    document.getElementById('new-status').value = '';
+    document.getElementById('new-possibleOn').value = '';
+    document.getElementById('new-plannedFor').value = '';
+    document.getElementById('new-geotag').value = '';
+    document.getElementById('new-tags').value = '';
+  } else {
+    alert('Please fill out all fields.');
+  }
+}
 
 // Render ToDo List Table
 function renderTable(todoItems) {
   const tbody = document.querySelector('#todo-table tbody');
   tbody.innerHTML = '';
-      
-  // Options for Dropdown list items
-  const categoryOptions = ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'];
-  const statusOptions = ['Idee', 'Geplant', 'Mach ma Fix', 'Erlebt'];
-  
+
+  // Render existing todo items
   todoItems.forEach(item => {
     const row = document.createElement('tr');
-    
-    // Add name cell
+
     const nameCell = document.createElement('td');
     nameCell.textContent = item.name;
     row.appendChild(nameCell);
-    
-    // Add category dropdown
+
     const categoryCell = document.createElement('td');
-    const categoryDropdown = createDropdown('category', categoryOptions, item.category);
+    const categoryDropdown = createDropdown('category', ['Tagesausflug', 'Einmaliges', 'Ausprobieren', 'Abendgestaltung', 'Größeres'], item.category);
     categoryCell.appendChild(categoryDropdown);
     row.appendChild(categoryCell);
-    
-    // Add status dropdown
+
     const statusCell = document.createElement('td');
-    const statusDropdown = createDropdown('status', statusOptions, item.status);
+    const statusDropdown = createDropdown('status', ['Idee', 'Geplant', 'Mach ma Fix', 'Erlebt'], item.status);
     statusCell.appendChild(statusDropdown);
     row.appendChild(statusCell);
-    
-    // Add the remaining cells with simple text content
+
     const dateRangeCell = document.createElement('td');
     dateRangeCell.textContent = item.possibleOn;
     row.appendChild(dateRangeCell);
-    
+
     const plannedTimeCell = document.createElement('td');
     plannedTimeCell.textContent = item.plannedFor;
     row.appendChild(plannedTimeCell);
-    
+
     const geotagCell = document.createElement('td');
     geotagCell.textContent = item.geotag;
     row.appendChild(geotagCell);
-    
+
     const tagsCell = document.createElement('td');
     tagsCell.textContent = item.tags;
     row.appendChild(tagsCell);
 
-     // Set up event listeners for the dropdowns in this row
-    //setupDropdownListeners(row, categoryDropdown, statusDropdown, item);
-      
-    //add the complete row to the table body now  
-    tbody.appendChild(row); 
+    tbody.appendChild(row);
   });
+
+  // Render an empty row for adding new items
+  renderEmptyRow(tbody);
+}
+// Function to add a new todo item
+function addTodoItem(name, category, status, possibleOn, plannedFor, geotag, tags) {
+  const newItem = {
+    name: name,
+    category: category,
+    status: status,
+    possibleOn: possibleOn,
+    plannedFor: plannedFor,
+    geotag: geotag,
+    tags: tags
+  };
+
+  // Add the new item to the todoItems array
+  todoItems.push(newItem);
+
+  // Re-render the table to include the new item
+  renderTable(todoItems);
 }
 
 // User credentials 
