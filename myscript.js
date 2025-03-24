@@ -225,7 +225,12 @@ function renderTable(todoItems) {
 
   // Render an empty row for adding new items
   renderEmptyRow(tbody);
+
+  // Add event listener to the filter button
+  const filterButton = document.getElementById('filter-button');
+  filterButton.addEventListener('click', handleFilterButton);
 }
+
 // Function to add a new todo item
 function addTodoItem(name, category, status, possibleOn, plannedFor, geotag, tags) {
   const newItem = {
