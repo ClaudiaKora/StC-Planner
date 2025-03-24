@@ -27,4 +27,4 @@ const todoItems = [
         tags: "social, food, work"
     },
 ];
-export {todoItems;
+export {todoItems};
