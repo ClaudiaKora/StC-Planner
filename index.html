@@ -32,6 +32,21 @@
        <section id="items-section" style="display: none;">
             <h2>...die wir uns miteinander schön machen können.</h2>
             <div class="table-container">
+                <!-- Filter Section -->
+                <div id="filter-section">
+                    <label for="tag-filter">Filter by tag:</label>
+                    <select id="tag-filter">
+                        <option value="">Select a tag</option>
+                        <option value="nature">Nature</option>
+                        <option value="outdoors">Outdoors</option>
+                        <option value="relaxing">Relaxing</option>
+                        <option value="social">Social</option>
+                        <option value="food">Food</option>
+                        <option value="work">Work</option>
+                    </select>
+                    <button id="filter-button">Filter</button>
+                </div>
+                
                 <table id="todo-table">
                     <caption>Liste der Dinge</caption>
                     <thead>
