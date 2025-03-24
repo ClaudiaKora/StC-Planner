@@ -55,7 +55,7 @@ function renderTable(todoItems) {
         private Object location[];
         private Object tags [];
         
-        public todoItem(activity, category, status, possibility, date, location, tags){
+        public todoItems(activity, category, status, possibility, date, location, tags) {
             this.activity = activity;
             this.category = category;
             this.status = status;
