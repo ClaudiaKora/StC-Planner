@@ -24,7 +24,7 @@ function validateLogin() {
     }
 }
 
-//Java Class for Json Objects - the actual To Do List items in data.json
+//Java Class as a template for all the todoItems - stored in data.js...(?)
 public class todoItem {
     private String activity;
     private String category;
@@ -45,7 +45,8 @@ public class todoItem {
     }
     //getters and setters Funktionalitäten ggf hinzufügen
  }   
-
+import { todoItems } from ./data.js;
+    
 //How Dropdown Fields Work
 function createDropdown(type, options, selectedValue) {
   const select = document.createElement('select');
