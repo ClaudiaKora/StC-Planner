@@ -1,4 +1,4 @@
-const todoItems = [
+export const todoItems = [
  {
        activity: "Visit the Botanical Gardens",
        category: "weekend",
@@ -27,4 +27,4 @@ const todoItems = [
         tags: "social, food, work"
     },
 ];
-export { todoItems };
+
